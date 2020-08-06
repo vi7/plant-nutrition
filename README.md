@@ -18,4 +18,4 @@ Schematics is available [here](https://www.instructables.com/id/Automatically-wa
 | 2.   | Resistor 220Ohm                                    | 3pc    |
 | 3.   | PN2222A NPN Bipolar Transistor                     | 3pc    |
 | 4.   | Soil hygrometer module (czujnik wilgotności gleby) | 3pc    |
-| 5.   | Water hose (wężyk/wąz) 8mm                       | 1pc    |
+| 5.   | Water hose (wężyk/wąz) 8mm                         | 1pc    |
