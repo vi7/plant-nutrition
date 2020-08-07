@@ -23,25 +23,21 @@
 
 SimpleTimer timer;
 
-/* pump1 - est water amount: 700ml - time in seconds */
-// TODO: revert back valid values
-// uint8_t pump1WaterDuration = 14;
-uint8_t pump1WaterDuration = 5;
-/* pump2 - est water amount: 700ml - time in seconds */
-// TODO: revert back valid values
-// uint8_t pump2WaterDuration = 14;
-uint8_t pump2WaterDuration = 5;
+/* pump1 - est water amount: 500ml - time in seconds */
+uint8_t pump1WaterDuration = 10;
+/* pump2 - est water amount: 500ml - time in seconds */
+uint8_t pump2WaterDuration = 10;
 /* pump3 - est water amount: 350ml - time in seconds */
 // Uncomment to enable 3rd pump
 // uint8_t pump3WaterDuration = 7;
 
-/* water each 5 days - value in seconds */
+/* water each 5 days - value in milliseconds */
 // TODO: revert back valid values
 // uint32_t waterInterval = 5L * 24L * 60L * 60L;
-uint32_t waterInterval = 20 * 1000;
+uint32_t waterInterval = 30 * 60 * 1000;
 
 /* delay between pumps - value in seconds */
-uint8_t interPumpDelay =  2;
+uint8_t interPumpDelay =  5;
 
 /***************************************************/
 
