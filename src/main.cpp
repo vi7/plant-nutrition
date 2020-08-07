@@ -31,10 +31,10 @@ uint8_t pump2WaterDuration = 10;
 // Uncomment to enable 3rd pump
 // uint8_t pump3WaterDuration = 7;
 
-/* water each 5 days - value in milliseconds */
+/* water each 5 days - value in seconds */
 // TODO: revert back valid values
 // uint32_t waterInterval = 5L * 24L * 60L * 60L;
-uint32_t waterInterval = 30 * 60 * 1000;
+uint32_t waterInterval = 30 * 60;
 
 /* delay between pumps - value in seconds */
 uint8_t interPumpDelay =  5;
@@ -53,7 +53,9 @@ void setup() {
   initPumps();
   initLed();
 
-  timer.setInterval(waterInterval, water);
+  Serial.println("Watering interval is " + String(waterInterval) + "s");
+
+  timer.setInterval(waterInterval * 1000, water);
 
 }
 
