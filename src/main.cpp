@@ -32,9 +32,8 @@ uint8_t pump2WaterDuration = 10;
 // uint8_t pump3WaterDuration = 7;
 
 /* water each 5 days - value in seconds */
-// TODO: revert back valid values
-// uint32_t waterInterval = 5L * 24L * 60L * 60L;
-uint32_t waterInterval = 30 * 60;
+// Number literals are treated as signed, hence UL (forcing unsigned long)
+uint32_t waterInterval = 5UL * 24 * 60 * 60;
 
 /* delay between pumps - value in seconds */
 uint8_t interPumpDelay =  5;
