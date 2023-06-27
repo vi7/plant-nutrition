@@ -18,22 +18,22 @@
 #define PUMP1PIN 2
 #define PUMP2PIN 3
 // Uncomment to enable 3rd pump
-// #define PUMP3PIN 4
+#define PUMP3PIN 4
 #define LEDPIN   LED_BUILTIN
 
 SimpleTimer timer;
 
-/* pump1 - est water amount: 500ml - time in seconds */
-uint8_t pump1WaterDuration = 10;
-/* pump2 - est water amount: 500ml - time in seconds */
-uint8_t pump2WaterDuration = 10;
+/* pump1 - est water amount: 400ml - time in seconds */
+uint8_t pump1WaterDuration = 8;
+/* pump2 - est water amount: 400ml - time in seconds */
+uint8_t pump2WaterDuration = 8;
 /* pump3 - est water amount: 350ml - time in seconds */
 // Uncomment to enable 3rd pump
-// uint8_t pump3WaterDuration = 7;
+uint8_t pump3WaterDuration = 7;
 
-/* water each 5 days - value in seconds */
+/* water each 2 days - value in seconds */
 // Number literals are treated as signed, hence UL (forcing unsigned long)
-uint32_t waterInterval = 5UL * 24 * 60 * 60;
+uint32_t waterInterval = 2UL * 24 * 60 * 60;
 
 /* delay between pumps - value in seconds */
 uint8_t interPumpDelay =  5;
@@ -78,8 +78,8 @@ void initPumps() {
   pinMode(PUMP2PIN, OUTPUT);
   digitalWrite(PUMP2PIN, LOW);
   // Uncomment to enable 3rd pump
-  // pinMode(PUMP3PIN, OUTPUT);
-  // digitalWrite(PUMP3PIN, LOW);
+  pinMode(PUMP3PIN, OUTPUT);
+  digitalWrite(PUMP3PIN, LOW);
 }
 
 void initLed() {
@@ -102,9 +102,9 @@ void water() {
   prevDuration = prevDuration + pump2WaterDuration;
 
   // Uncomment to enable 3rd pump
-  // timer.setTimeout((prevDuration + interPumpDelay) * 1000, []{ pumpOn(PUMP3PIN); });
-  // prevDuration = prevDuration + interPumpDelay;
-  // timer.setTimeout((prevDuration + pump3WaterDuration) * 1000, []{ pumpOff(PUMP3PIN); });
+  timer.setTimeout((prevDuration + interPumpDelay) * 1000, []{ pumpOn(PUMP3PIN); });
+  prevDuration = prevDuration + interPumpDelay;
+  timer.setTimeout((prevDuration + pump3WaterDuration) * 1000, []{ pumpOff(PUMP3PIN); });
 }
 
 void pumpOn(uint8_t pumpPin) {
